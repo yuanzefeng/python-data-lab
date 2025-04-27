@@ -1,3 +1,11 @@
-{"image":"mcr.microsoft.com/devcontainers/universal:2"
-  "postStartCommand": "pip install jupyterlab && jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.disable_check_xsrf=True"
+{
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    // 如果要用 conda 或其他安装器，也可以加 features
+    "ghcr.io/devcontainers/features/python:1": {
+      "packageInstaller": "pip"
+    }
+  },
+  "postCreateCommand": "pip install pandas numpy jupyterlab python-dotenv",
+  "remoteUser": "vscode"
 }
